@@ -1,0 +1,8 @@
+first_name, last_name, annual_salary, super_rate, payment_start_date
+David, Rudd, 60050, 0.09, 01 March - 31 March
+Ryan, Chen, 120000, 0.20, 01 March - 31 March
+Gino, Coates, 5000, 0.09, 01 March - 31 March
+Barry, White, 85000, 0.20, 01 March - 31 March
+Ben, Wheeler, 190000, 0.20, 01 March - 31 March
+,, 190000, 0.20, 01 March - 31 March
+John, Cougar, -190000, 0.20, 01 March - 31 March

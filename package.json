@@ -1,0 +1,48 @@
+{
+  "name": "payslip",
+  "version": "1.0.0",
+  "description": "Given a CSV file of employee details outputs a CSV file with payslip information for each employee.",
+  "main": "index.js",
+  "repository": "https://github.com/ginocoates/node-payslip",
+  "author": "Gino Coates",
+  "license": "MIT",
+  "nyc": {
+    "check-coverage": true,
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 99,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/tests"
+    ],
+    "cache": true,
+    "all": true
+  },
+  "scripts": {
+    "build": "babel src -d build --ignore test",
+    "start:demo": "yarn build && yarn start -- ./sampledata/input.csv ./sampledata/output.csv",
+    "start:build": "yarn build && yarn start",
+    "start": "node build/index.js",
+    "test": "NODE_ENV=test nyc mocha --require babel-register src/tests/bootstrap.js src/tests/**/**/*.test.js "
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-register": "^6.24.1",
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^4.3.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.3",
+    "sinon": "^2.4.1"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.6.0",
+    "fast-csv": "^2.4.0"
+  }
+}
