@@ -1,5 +1,7 @@
-import { Payroll } from './services';
+import { PayrollService, StreamProvider } from './services';
 import { Console } from './utils';
+import {messages, events } from './resources';
+import util from 'util';
 
 const printUsage = () => {
   Console.info('\nUsage:');
@@ -11,12 +13,15 @@ const printUsage = () => {
 
 const inputFile = process.argv[2];
 const outputFile = process.argv[3];
-const taxRules = process.argv[4];
+const taxYear = process.argv[4];
 
-new Payroll().process(inputFile, outputFile, taxRules)
-  .then(() => {
-    Console.success('Complete!');
-  })
+new StreamProvider()
+  .on(events.invalidRow, data => Console.error(util.format('%s:%s', messages.invalidInputRow, JSON.stringify(data))))
+  .initialize(inputFile, outputFile)
+  .then(streamProvider => new PayrollService()
+    .on(events.payslipReady, payslip => Console.success(`${payslip.name}, ${payslip.pay_period},${payslip.gross_income},${payslip.income_tax},${payslip.net_income},${payslip.super_annuation}`))
+    .process(taxYear, streamProvider))
+  .then(() => Console.success('Complete!'))
   .catch(err => {
     Console.error(err.toString());
     printUsage();

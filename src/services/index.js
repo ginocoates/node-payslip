@@ -1,9 +1,9 @@
-import Payroll from './Payroll';
+import PayrollService from './PayrollService';
+import StreamProvider from './StreamProvider';
 import InputValidator from './InputValidator';
-import OutputValidator from './OutputValidator';
 
 module.exports = {
-  Payroll,
-  InputValidator,
-  OutputValidator
+  PayrollService,
+  StreamProvider,
+  InputValidator
 };

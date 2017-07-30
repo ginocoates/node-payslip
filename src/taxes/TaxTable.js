@@ -9,7 +9,7 @@ export default class TaxTable {
     const rule = this.rules.find(r => r.test(salary));
 
     if(!rule) {
-      throw new Error(messages.norule);
+      throw new Error(messages.ruleNotFound);
     }
 
     return rule.apply(salary);
