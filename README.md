@@ -32,5 +32,6 @@ The app is designed to have a configurable set of tax rules. Take a look at taxe
 rules are configured.
 
 ## Assumptions
-* The application should continue if there are invalid rows, but these should be reported to the user
-* Input and Output are CSV files
+* The application should continue if there are invalid rows, but these should be reported to the user.
+* Input and Output are CSV files, no other storage of data is used.
+* The App is a CLI and no GUI is provided.
