@@ -1,6 +1,6 @@
-first_name,last_name,annual_salary,super_rate,payment_start_date
-David,Rudd,60050,0.09,01 March - 31 March
-Ryan,Chen,120000,0.20,01 March - 31 March
-Gino,Coates,5000,0.09,01 March - 31 March
-Barry,White,85000,0.20,01 March - 31 March
-Ben,Wheeler,190000,0.20,01 March - 31 March
+name,pay_period,gross_income,income_tax,net_income,super_annuation
+David Rudd,01 March - 31 March,5004,922,4082,450
+Ryan Chen,01 March - 31 March,10000,2696,7304,2000
+Gino Coates,01 March - 31 March,417,0,417,38
+Barry White,01 March - 31 March,7083,1616,5467,1417
+Ben Wheeler,01 March - 31 March,15833,4921,10912,3167
