@@ -12,7 +12,7 @@ payslip information with name, pay period, gross income, income tax, net income 
 * Run Tests/Coverage - in the source directory run `yarn test`
 * Build - in the source directory run `yarn build`
 
-### Executing the apply
+### Running the App
 The app id designed to take three parameters.
 Run the app without parameters to get the usage information.
 
@@ -31,5 +31,5 @@ The app is designed to have a configurable set of tax rules. Take a look at taxe
 rules are configured.
 
 ## Assumptions
-* The application should continue if there are invalid rows, but these should be reported
-* Input and Output are CSV
+* The application should continue if there are invalid rows, but these should be reported to the user
+* Input and Output are CSV files
