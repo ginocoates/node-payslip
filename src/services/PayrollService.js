@@ -37,7 +37,6 @@ export default class PayrollService extends EventEmitter {
     const tax = Math.round(taxTable.apply(data.annual_salary) / 12);
     const net = Math.round(gross - tax);
     const superAnnuation = Math.round(gross * data.super_rate);
-    
     const payslip = {
       name: `${data.first_name} ${data.last_name}`,
       pay_period: data.payment_start_date,
