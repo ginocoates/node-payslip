@@ -14,16 +14,17 @@ payslip information with name, pay period, gross income, income tax, net income 
 
 ### Running the App
 The app id designed to take three parameters.
-Run the app without parameters to get the usage information.
+Run the app without parameters to get the usage information, as follows:
 
 Usage:
 node index.js inputFile outputFile [taxYear]
 
-inputFile   - The input csv file
-outputFile  - The output payroll file
-taxYear     - The tax rules to use (optional - defaults to 2012-13)
+* inputFile   - The input csv file
+* outputFile  - The output payroll file
+* taxYear     - The tax rules to use (optional - defaults to 2012-13)
 
-The app can also be run from yarn. In the source directory run
+The app can also be run from yarn. In the source directory using:
+
 `yarn start -- inputfile outputfile taxrules`
 
 ## Additional info
