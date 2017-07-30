@@ -11,6 +11,11 @@ const printUsage = () => {
   Console.info('taxYear     - The tax rules to use (optional - defaults to 2012-13)\n');
 };
 
+if(process.argv.length < 4){
+  printUsage();
+  process.exit(1);
+}
+
 const inputFile = process.argv[2];
 const outputFile = process.argv[3];
 const taxYear = process.argv[4];

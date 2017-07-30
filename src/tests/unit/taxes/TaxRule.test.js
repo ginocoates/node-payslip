@@ -3,7 +3,7 @@ import {messages} from '../../../resources';
 
 let sandbox;
 
-describe('PayrollService', () => {
+describe('TaxRule', () => {
   before(() => {
     sandbox = sinon.sandbox.create();
   });

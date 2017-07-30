@@ -1,5 +1,5 @@
 import config from '../../../config';
-import { PayrollService, StreamProvider } from '../../../services';
+import { StreamProvider, PayrollService } from '../../../services';
 import {messages} from '../../../resources';
 import util from 'util';
 import EventEmitter from 'events';
@@ -32,6 +32,20 @@ describe('PayrollService', () => {
         let taxYear = '2020-21';
         return expect(target.process(taxYear, streamProvider))
           .to.eventually.be.rejectedWith(messages.unknownTaxRules);
+      });
+
+      it('should use default when taxYear is null', () => {
+        let promise = target.process(null, streamProvider);
+        streamProvider.csvOut.emit('finish');
+        return expect(promise)
+          .to.eventually.be.fulfilled;
+      });
+
+      it('should use default when taxYear is empty', () => {
+        let promise = target.process('', streamProvider);
+        streamProvider.csvOut.emit('finish');
+        return expect(promise)
+          .to.eventually.be.fulfilled;
       });
 
       it('should reject when stream provider is null', () => {

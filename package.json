@@ -1,5 +1,5 @@
 {
-  "name": "payslip",
+  "name": "node-payslip",
   "version": "1.0.0",
   "description": "Given a CSV file of employee details outputs a CSV file with payslip information for each employee.",
   "main": "index.js",
@@ -7,26 +7,38 @@
   "author": "Gino Coates",
   "license": "MIT",
   "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "include": [
+      "src/*/*.js"
+    ],
+    "exclude": [
+      "build",
+      "coverage",
+      "src/tests"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ],
     "check-coverage": true,
+    "per-file": true,
+    "all": true,
+    "sourceMap": false,
+    "instrument": false,
     "lines": 99,
     "statements": 99,
     "functions": 99,
     "branches": 99,
-    "include": [
-      "src"
-    ],
-    "exclude": [
-      "src/tests"
-    ],
-    "cache": true,
-    "all": true
+    "cache": true
   },
   "scripts": {
     "build": "babel src -d build --ignore test",
-    "start:demo": "yarn build && yarn start -- ./src/tests/testdata/input.csv ./src/tests/testdata/output.csv",
-    "start:build": "yarn build && yarn start",
+    "demo": "yarn build && yarn start -- ./src/tests/testdata/input.csv ./src/tests/testdata/output.csv",
     "start": "node build/index.js",
-    "test": "NODE_ENV=test nyc mocha --require babel-register src/tests/bootstrap.js src/tests/**/**/*.test.js "
+    "test": "NODE_ENV=test nyc mocha src/tests/bootstrap.js src/tests/**/*/*.test.js "
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -44,6 +56,7 @@
   },
   "dependencies": {
     "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
     "fast-csv": "^2.4.0"
   }
 }

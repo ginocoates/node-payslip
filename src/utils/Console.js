@@ -10,6 +10,6 @@ module.exports = {
     console.warn('\x1b[33m%s\x1b[0m', msg);
   },
   error: (msg) => {
-    console.warn('\x1b[31m%s\x1b[0m', msg);
+    console.error('\x1b[31m%s\x1b[0m', msg);
   }
 };
